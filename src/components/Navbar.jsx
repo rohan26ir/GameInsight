@@ -6,6 +6,7 @@ import { CgPlayListAdd, CgProfile } from "react-icons/cg";
 import { TfiUser } from "react-icons/tfi";
 import { MdOutlineGamepad } from "react-icons/md";
 import { PiGameControllerBold } from "react-icons/pi";
+import DarkMode from "./DarkMode";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -113,8 +114,14 @@ const Navbar = () => {
           </ul>
         </div>
 
+        
+
         {/* Navbar End */}
         <div className="navbar-end items-center gap-2">
+
+        <div>
+          <DarkMode></DarkMode>
+        </div>
 
 
           <div className="tooltip tooltip-bottom tooltip-info" data-tip={user ? user.displayName : "User Name"}>
