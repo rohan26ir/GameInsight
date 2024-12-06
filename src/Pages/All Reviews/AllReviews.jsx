@@ -2,7 +2,8 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { FaFantasyFlightGames } from "react-icons/fa";
 import { SiRescuetime } from "react-icons/si";
-import { useLoaderData } from "react-router-dom";
+import { TbDetails } from "react-icons/tb";
+import { Link, useLoaderData } from "react-router-dom";
 
 const AllReviews = () => {
   const addedReviews = useLoaderData();
@@ -18,7 +19,7 @@ const AllReviews = () => {
         <p>Total: {addedReviews.length}</p>
       </div>
 
-      <div className=" gap-2 grid grid-cols-1 md:grid-cols-2  w-11/12 mx-auto my-6">
+      <div className="gap-2 grid grid-cols-1 md:grid-cols-2 w-11/12 mx-auto my-6">
         {addedReviews.map((addedReview) => (
           <div
             key={addedReview._id}
@@ -36,7 +37,6 @@ const AllReviews = () => {
                 <h2 className="text-2xl font-bold text-white">
                   {addedReview.name}
                 </h2>
-                {/* <p>{addedReview.review}</p> */}
                 <p>
                   <div className="rating h-[10px] mr-3">
                     <input
@@ -77,8 +77,13 @@ const AllReviews = () => {
                     <FaFantasyFlightGames /> {addedReview.genre}
                   </p>
                 </div>
-                {/* <p>{addedReview.userEmail}</p> */}
-                <p>{addedReview.userName}</p>
+                <div className="flex justify-end">
+                  <Link to={`/review/${addedReview._id}`}>
+                    <button className="bg-red-600 px-3 py-1 rounded flex items-center gap-1">
+                      <TbDetails /> Explore Details
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

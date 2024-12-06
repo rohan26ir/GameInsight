@@ -12,6 +12,8 @@ import GameWatchList from '../Pages/Game WatchList/GameWatchList';
 import ErrorPage from '../Pages/Error/ErrorPage';
 import HomeLayout from '../Layout/HomeLayout';
 import MainLayout from '../Layout/MainLayout';
+import UpdateReview from '../Pages/My Reviews/UpdateReview';
+import ExploreDetails from '../Pages/All Reviews/ExploreDetails';
 
 const Routes = createBrowserRouter([
   {
@@ -29,6 +31,18 @@ const Routes = createBrowserRouter([
         element: <AllReviews></AllReviews>,
         loader: () => fetch('http://localhost:5000/addReview'),
       },
+      {
+        path: '/review/:id',
+        element: <ExploreDetails />,
+        loader: async ({ params }) => {
+          const response = await fetch(`http://localhost:5000/review/${params.id}`);
+          if (!response.ok) {
+            throw new Error('Review not found');
+          }
+          return response.json();
+        }
+      },
+        
 
       // Private 
       {
@@ -38,6 +52,10 @@ const Routes = createBrowserRouter([
       {
         path: '/my-reviews',
         element: <PrivateRoute><MyReviews /></PrivateRoute>
+      },
+      {
+        path: '/updateReview/:id',
+        element: <PrivateRoute><UpdateReview></UpdateReview></PrivateRoute>
       },
       {
         path: '/game-watchList',
