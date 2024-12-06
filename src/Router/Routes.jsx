@@ -26,7 +26,8 @@ const Routes = createBrowserRouter([
       },
       {
         path: '/all-reviews',
-        element: <AllReviews></AllReviews>
+        element: <AllReviews></AllReviews>,
+        loader: () => fetch('http://localhost:5000/addReview'),
       },
 
       // Private 

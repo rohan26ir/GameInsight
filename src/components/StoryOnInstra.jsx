@@ -6,6 +6,7 @@ import insImg4 from "../assets/insta-04.jpg";
 import insImg5 from "../assets/insta-05.jpg";
 import insImg6 from "../assets/insta-06.jpg";
 import { IoLogoInstagram } from "react-icons/io";
+import { MdOutlineViewInAr } from "react-icons/md";
 
 const instraImages = [
   {
@@ -46,8 +47,11 @@ const StoryOnInstra = () => {
       <div className="flex w-11/12 mx-auto p-2">
         {/* Start */}
         {/* Left */}
+        <div className="flex justify-center items-center -ml-16">
+          <button className="uppercase text-lime-400 -rotate-90 w-32 flex items-center gap-2"> <MdOutlineViewInAr /> View Our</button>
+        </div>
+        {/* middle */}
         <div className="space-y-3 p-8 my-auto">
-          <h3 className="uppercase text-lime-400">View Our</h3>
           <h2 className="uppercase text-5xl font-bold text-white">
             Story on Instagram
           </h2>

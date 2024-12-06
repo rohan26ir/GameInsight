@@ -8,6 +8,7 @@ import img2 from '../assets/banner02.jpg'
 import img3 from '../assets/banner03.jpg'
 import img4 from '../assets/banner04.jpg'
 import StoryOnInstra from '../components/StoryOnInstra';
+import HighestRated from '../components/HighestRated';
 
 
 
@@ -68,6 +69,10 @@ const HomeLayout = () => {
       <main className={`py-2 ${themeClasses}`}>
         <div>
         <Slider slides={slidesContent} autoplayDelay={3000} />
+        </div>
+
+        <div>
+          <HighestRated></HighestRated>
         </div>
 
         <div>
