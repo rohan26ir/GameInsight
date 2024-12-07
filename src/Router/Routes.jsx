@@ -25,11 +25,11 @@ const Routes = createBrowserRouter([
       {
         path: '/',
         element: <HomeLayout></HomeLayout>,
+        loader: () => fetch('http://localhost:5000/addReview'),
       },
       {
         path: '/all-reviews',
         element: <AllReviews></AllReviews>,
-        loader: () => fetch('http://localhost:5000/addReview'),
       },
       {
         path: '/review/:id',

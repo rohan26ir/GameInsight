@@ -1,12 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { FaFantasyFlightGames } from "react-icons/fa";
 import { SiRescuetime } from "react-icons/si";
 import { TbDetails } from "react-icons/tb";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const AllReviews = () => {
-  const addedReviews = useLoaderData();
+
+
+  const [addedReviews, setAddedReviews] = useState([]);
+
+  const [sortBy, setSortBy] = useState("");
+  const [order, setOrder] = useState("asc");
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const queryParams = new URLSearchParams();
+        if (sortBy) queryParams.append("sortBy", sortBy);
+        if (order) queryParams.append("order", order);
+
+        const response = await fetch(
+          `http://localhost:5000/addReview?${queryParams}`
+        );
+        const data = await response.json();
+        setAddedReviews(data);
+      } catch (error) {
+        console.error("Failed to fetch reviews:", error);
+      }
+    };
+
+    fetchReviews();
+  }, [sortBy, order]);
 
   return (
     <div>
@@ -17,6 +42,27 @@ const AllReviews = () => {
       <div className="mt-32 w-11/12 mx-auto">
         <h2 className="text-5xl font-bold">All Reviews</h2>
         <p>Total: {addedReviews.length}</p>
+
+        <div className="flex justify-end my-4">
+          <select
+            className="p-2 border rounded"
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value)}
+          >
+            <option value="">Sort by</option>
+            <option value="rating">Rating</option>
+            <option value="year">Year</option>
+          </select>
+
+          <select
+            className="p-2 border rounded ml-2"
+            value={order}
+            onChange={(e) => setOrder(e.target.value)}
+          >
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+          </select>
+        </div>
       </div>
 
       <div className="gap-2 grid grid-cols-1 md:grid-cols-2 w-11/12 mx-auto my-6">
