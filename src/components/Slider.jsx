@@ -22,7 +22,7 @@ const Slider = ({ slides, autoplayDelay = 2500 }) => {
   };
 
   return (
-    <div className='py-5'>
+    <div className='pb-5 -mt-[6px] mx-auto'>
       <div className="slider-container">
       <Swiper
         spaceBetween={30}

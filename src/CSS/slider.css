@@ -1,44 +1,49 @@
 .slider-container {
   width: 100%;
-  max-width: 1200px;
-  margin: auto;
+  height: 450px;
+  margin: 0;
+  padding: 0;
+  object-fit: fill;
 }
 
 .mySwiper {
-  height: 400px;
+  width: 100%;
+  height: 100%;
 }
 
-.mySwiper .swiper-pagination-bullet {
-  background: #007bff;
-  opacity: 1;
-}
-
-.mySwiper .swiper-button-next,
-.mySwiper .swiper-button-prev {
-  color: #333;
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Full width of the container */
+  height: auto; /* Automatically adjust height */
 }
 
 .autoplay-progress {
   position: absolute;
-  bottom: 10px;
+  top: 10px;
   right: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 48px;
   height: 48px;
+  z-index: 50;
 }
 
 .autoplay-progress svg {
   transform: rotate(-90deg);
   fill: none;
-  stroke: rgba(0, 0, 0, 0.3);
   stroke-width: 4;
+  stroke: #fff;
   stroke-dasharray: 126;
-  stroke-dashoffset: calc(var(--progress, 1) * 126);
-  transition: stroke-dashoffset 0.2s linear;
+  stroke-dashoffset: calc(126 * var(--progress, 1));
+  transition: stroke-dashoffset 0.2s;
 }
 
-.autoplay-progress circle {
-  stroke: #007bff;
+.autoplay-progress span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
 }

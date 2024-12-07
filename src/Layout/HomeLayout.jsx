@@ -4,20 +4,22 @@ import Slider from '../components/Slider';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 
 import img1 from '../assets/banner01.jpg'
-import img2 from '../assets/banner02.jpg'
+// import img2 from '../assets/banner02.jpg'
+import img2 from '../assets/ac3.jpg'
 import img3 from '../assets/banner03.jpg'
-import img4 from '../assets/banner04.jpg'
+// import img4 from '../assets/banner04.jpg'
+import img4 from '../assets/ww3.jpg'
 import StoryOnInstra from '../components/StoryOnInstra';
 import HighestRated from '../components/HighestRated';
 
 
 
 const slidesContent = [
-  <div className="flex items-center justify-center w-full text-white text-2xl">
+  <div className="flex items-center justify-center w-fit text-white text-2xl">
     {/* Slide 1 */}
 
     <img 
-    className='w-full object-cover'
+    className='w-fit object-cover'
     src={img1} 
     alt="" />
   </div>,
@@ -25,7 +27,7 @@ const slidesContent = [
     {/* Slide 2 */}
 
     <img 
-    className='w-full object-cover'
+    className='w-fit h-fit object-cover'
     src={img2} 
     alt="" />
   </div>,
@@ -33,7 +35,7 @@ const slidesContent = [
     {/* Slide 3 */}
 
     <img 
-    className='w-full object-cover'
+    className='w-fit object-cover'
     src={img3} 
     alt="" />
   </div>,
@@ -41,7 +43,7 @@ const slidesContent = [
     {/* Slide 3 */}
 
     <img 
-    className='w-full object-cover'
+    className='w-fit object-cover'
     src={img4} 
     alt="" />
   </div>,
