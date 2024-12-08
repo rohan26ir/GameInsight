@@ -1,6 +1,6 @@
 # **GameInsight - Frontend**
 
-### **Live Website:** [GameInsight](https://your-live-site-url.com)
+### **Live Website:** [GameInsight](https://gamer-insight.web.app/)
 
 ---
 
@@ -27,7 +27,6 @@ This repository contains the **frontend** code for GameInsight, a game review pl
 
 - **Watchlist**:
   - Add games to a personal watchlist.
-  - Manage watchlists on a dedicated page.
 
 - **Modern Animations**:
   - Typewriter effects using `React-simple-typewriter`.
