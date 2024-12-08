@@ -9,8 +9,16 @@ import { Helmet } from 'react-helmet';
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [passwordError, setPasswordError] = useState('');
-  const { createNewUser, setUser, updateUserProfile, signInWithGoogle } = useContext(AuthContext);
+  const { createNewUser, setUser, updateUserProfile, signInWithGoogle, darkMode } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  const themeMode = darkMode
+    ? "bg-gradient-to-br from-[#1a1c2b] via-[#29274c] to-[#4a3b74] text-white"
+    : "bg-[#FFF5CD] text-black";
+
+    const btnMode = darkMode
+    ? "bg-gray-500 text-white"
+    : "bg-white text-black";
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -105,7 +113,7 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1a1c2b] via-[#29274c] to-[#4a3b74] flex justify-center items-center p-4 relative overflow-hidden">
+    <div className={`min-h-screen flex justify-center items-center p-4 relative overflow-hidden ${themeMode}`}>
       {/* Background Animation */}
       <div className="absolute inset-0">
         <div className="absolute bg-purple-500 opacity-50 blur-xl w-72 h-72 rounded-full top-10 left-16 animate-pulse"></div>
@@ -117,10 +125,11 @@ const Register = () => {
         <title>Register - Coupon Catcher</title>
       </Helmet>
 
-      <div className="relative z-10 w-full max-w-md bg-opacity-90 bg-[#2b2b40] p-8 shadow-xl rounded-lg border border-gray-600">
-        <h2 className="text-center text-2xl font-bold mx-auto py-6 border-b-[1px] border-gray-400 w-[80%] text-[#ffeba7]" style={{ textShadow: '1px 1px 20px #ffeba7' }}>
+      <div className="relative z-10 w-full max-w-md bg-opacity-90 bg-[#2b2b40] p-2 shadow-xl rounded-lg border border-gray-600 m-8">
+        <h2 className="text-center text-2xl font-bold mx-auto py-5 border-b-[1px] border-gray-400 w-[80%] text-[#ffeba7]" style={{ textShadow: '1px 1px 20px #ffeba7' }}>
           Register your account
         </h2>
+
         <form onSubmit={handleRegister} className="card-body">
           <div className="form-control">
             <label className="label">
@@ -165,13 +174,13 @@ const Register = () => {
               
             )}
           </div>
-          <div className="form-control mt-6">
-            <button type="submit" className="btn btn-neutral rounded-none">
+          <div className="form-control mt-3">
+            <button type="submit" className={ `btn btn-neutral rounded-none ${btnMode}`}>
               Register
             </button>
           </div>
           <div>
-          <p className="text-sm text-center py-3 text-white">
+          <p className="text-sm text-center py-1 text-white">
             Already have an account?{" "}
             <Link to={'/auth/login'}>
             <span className="text-blue-600">Login here</span>
@@ -179,7 +188,7 @@ const Register = () => {
           </p>
           </div>
           <div className="form-control">
-            <div onClick={handleSignInGoogle} className="btn btn-neutral rounded-none">
+            <div onClick={handleSignInGoogle} className="btn bg-red-600 text-white">
               <FcGoogle /> Log in with Google
             </div>
           </div>

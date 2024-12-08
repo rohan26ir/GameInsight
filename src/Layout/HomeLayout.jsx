@@ -53,22 +53,23 @@ const HomeLayout = () => {
 
   const { darkMode } = useContext(AuthContext);
 
-  const themeClasses = darkMode
-    // ? "bg-gradient-to-tl from-red-900 to-black text-white"
-    ? "bg-[#111410] text-white"
-    : "bg-gradient-to-r from-gray-700 to-gray-200 text-black";
+  const themeMode = darkMode
+    ? "bg-black text-white"
+    : "bg-[#FFF5CD] text-black";
 
 
 
   return (
-    <div className={`${themeClasses} `}>
+    <div className={`${themeMode} `}>
+
+      <span   className='   bg-black     '></span>
       
       <Helmet>
         <title>Home - GameInsight</title>
       </Helmet>
 
 
-      <main className={`py-2 ${themeClasses}`}>
+      <main className={`py-2 ${themeMode}`}>
         <div>
         <Slider slides={slidesContent} autoplayDelay={3000} />
         </div>

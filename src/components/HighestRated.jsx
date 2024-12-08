@@ -21,7 +21,7 @@ const HighestRated = () => {
 
   return (
     <div className="w-11/12 mx-auto">
-      <h2 className="text-4xl font-bold text-gray-50 my-2">Highest Rated Games</h2>
+      <h2 className="text-4xl font-bold my-2">Highest Rated Games</h2>
       
 
       {/* Game Cards */}

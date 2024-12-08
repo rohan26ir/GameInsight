@@ -1,17 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Helmet } from "react-helmet";
 import { FaFantasyFlightGames } from "react-icons/fa";
 import { SiRescuetime } from "react-icons/si";
 import { TbDetails } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const AllReviews = () => {
 
+  const {darkMode} = useContext(AuthContext);
 
   const [addedReviews, setAddedReviews] = useState([]);
 
   const [sortBy, setSortBy] = useState("");
   const [order, setOrder] = useState("asc");
+
+  const themeMode = darkMode
+    ? "bg-black text-white"
+    : "bg-[#FFF5CD] text-black";
+    
+    const sortMode = darkMode
+      ? "bg-red-600 text-white"
+      : "bg-[#35374B] text-black";
+
+    const padding = addedReviews
+    ? "p-11"
+    : ""
 
   useEffect(() => {
     const fetchReviews = async () => {
@@ -34,18 +48,21 @@ const AllReviews = () => {
   }, [sortBy, order]);
 
   return (
-    <div>
+    <div className={`${themeMode}`}>
       <Helmet>
         <title>All Review - GameInsight</title>
       </Helmet>
 
-      <div className="mt-32 w-11/12 mx-auto">
-        <h2 className="text-5xl font-bold">All Reviews</h2>
-        <p>Total: {addedReviews.length}</p>
+      <div className="pt-5 w-11/12 mx-auto">
+        
 
-        <div className="flex justify-end my-4">
+        <div className="flex justify-between items-center my-4 ">
+          <div>
+          <h2 className="text-5xl font-bold">All Reviews</h2>
+          </div>
+          <div>
           <select
-            className="p-2 border rounded"
+            className={`p-2 border rounded bg-red-600 ${sortMode}`}
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
           >
@@ -55,17 +72,19 @@ const AllReviews = () => {
           </select>
 
           <select
-            className="p-2 border rounded ml-2"
+            className={`p-2 border rounded ml-2 bg-red-600 ${sortMode}`}
             value={order}
             onChange={(e) => setOrder(e.target.value)}
           >
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
           </select>
+          </div>
         </div>
       </div>
 
-      <div className="gap-2 grid grid-cols-1 md:grid-cols-2 w-11/12 mx-auto my-6">
+      <div className="gap-2 grid grid-cols-1 md:grid-cols-2 w-11/12 mx-auto m
+      py-6">
         {addedReviews.map((addedReview) => (
           <div
             key={addedReview._id}
@@ -135,6 +154,7 @@ const AllReviews = () => {
           </div>
         ))}
       </div>
+      <div className={` ${padding}`}></div>
     </div>
   );
 };

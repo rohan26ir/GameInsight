@@ -9,11 +9,18 @@ import { Helmet } from "react-helmet";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const { logIn, signInWithGoogle, setUser } = useContext(AuthContext);
+  const { logIn, signInWithGoogle, setUser, darkMode } = useContext(AuthContext);
 
   const location = useLocation();
   const navigate = useNavigate();
   const emailRef = useRef();
+
+  const themeMode = darkMode
+    ? "bg-gradient-to-br from-[#1a1c2b] via-[#29274c] to-[#4a3b74] text-white"
+    : "bg-[#FFF5CD] text-black";
+  const googleMode = darkMode
+  ? " bg-black"
+  : " bg-white"
 
   const handleLogIn = (e) => {
     e.preventDefault();
@@ -76,7 +83,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1a1c2b] via-[#29274c] to-[#4a3b74] flex justify-center items-center p-4 relative overflow-hidden">
+    <div className={`min-h-screen  flex justify-center items-center p-4 relative overflow-hidden ${themeMode}`}>
       {/* Background Animation */}
       <div className="absolute inset-0">
         <div className="absolute bg-purple-500 opacity-50 blur-xl w-72 h-72 rounded-full top-10 left-16 animate-pulse"></div>
@@ -135,7 +142,7 @@ const Login = () => {
         </p>
         <button
           onClick={handleSignInGoogle}
-          className="mt-4 flex items-center justify-center w-full py-2 bg-white text-gray-700 rounded-lg shadow-lg hover:bg-gray-100"
+          className={` ${googleMode} mt-4 flex items-center justify-center w-full py-2 text-gray-700 rounded-lg shadow-lg hover:bg-gray-100 `}
         >
           <FcGoogle className="text-2xl mr-2" /> Log in with Google
         </button>

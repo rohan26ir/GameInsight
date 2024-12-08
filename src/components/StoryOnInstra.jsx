@@ -44,15 +44,18 @@ const instraImages = [
 const StoryOnInstra = () => {
   return (
     <div>
-      <div className="flex w-11/12 mx-auto p-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 w-11/12 mx-auto p-2">
         {/* Start */}
-        {/* Left */}
-        <div className="flex justify-center items-center -ml-16">
-          <button className="uppercase text-lime-400 -rotate-90 w-32 flex items-center gap-2"> <MdOutlineViewInAr /> View Our</button>
+        <div className="flex">
+
+          {/* Left */}
+        <div className="inline-flex justify-center items-center -ml-0 md:-ml-16">
+          <div className="uppercase text-lime-400 -rotate-90 w-0 md:w-32 flex items-center gap-1"> <MdOutlineViewInAr className="hidden md:block" /> View Our</div>
         </div>
+
         {/* middle */}
         <div className="space-y-3 p-8 my-auto">
-          <h2 className="uppercase text-5xl font-bold text-white">
+          <h2 className="uppercase text-5xl font-bold ">
             Story on Instagram
           </h2>
           <p className="text-gray-400">
@@ -67,8 +70,10 @@ const StoryOnInstra = () => {
             </button>
           </div>
         </div>
+        </div>
+
         {/* Right */}
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {instraImages.map((instra) => (
             <div key={instra.unique_number} className="relative group">
               <img

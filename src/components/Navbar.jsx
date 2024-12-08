@@ -68,7 +68,9 @@ const Navbar = () => {
               )}
             </ul>
           </div>
-          <Link
+          
+          <div className="hidden md:block">
+            <Link
             to="/"
             className="p-2 flex text-xl font-bold justify-center items-center"
           >
@@ -77,6 +79,7 @@ const Navbar = () => {
             </span>{" "}
             <span className="text-orange-600">GameInsight</span>
           </Link>
+          </div>
         </div>
 
         {/* Navbar Center */}
@@ -113,7 +116,7 @@ const Navbar = () => {
         
 
         {/* Navbar End */}
-        <div className="navbar-end items-center gap-2">
+        <div className="navbar-end items-center gap-2 w-[100%]">
 
         <div>
           <DarkMode></DarkMode>
@@ -144,13 +147,13 @@ const Navbar = () => {
           {user ? (
             <button
               onClick={logOut}
-              className="px-5 py-1 bg-red-600 hover:bg-rose-700 text-white font-semibold rounded-md"
+              className="px-4 py-1 bg-red-600 hover:bg-rose-700 text-white font-semibold rounded-md"
             >
               Log Out
             </button>
           ) : (
             <Link to="/auth/login">
-              <button className="px-5 py-1 bg-red-600 hover:bg-rose-800 text-white font-semibold rounded-md">
+              <button className="px-2 py-1 bg-red-600 hover:bg-rose-800 text-white font-semibold rounded-md w-[100%] ">
                 Log In
               </button>
             </Link>

@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import { Outlet } from 'react-router-dom';
 
 const AuthLayout = () => {
+  
   return (
     <div>
       <header className='top-0 mb-8'>
