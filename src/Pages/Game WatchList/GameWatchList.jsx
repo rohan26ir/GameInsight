@@ -32,7 +32,7 @@ const GameWatchList = () => {
     const fetchWatchlist = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/watchlist?email=${user.email}`
+          `https://gameinsight-server.vercel.app/watchlist?email=${user.email}`
         );
 
         const data = await response.json();
@@ -48,14 +48,14 @@ const GameWatchList = () => {
   }, [user?.email]);
 
   return (
-    <div className={`min-h-screen ${themeMode}`}>
+    <div className={` ${themeMode}`}>
       <Helmet>
         <title>Game WatchList - GameInsight</title>
       </Helmet>
-      <div className="p-20 ">
-        <div className="flex justify-between px-2">
+      <div className="p-4 md:p-10 lg:p-20 ">
+        <div className="flex justify-between px-2 ">
           <div>
-          <h1 className="text-3xl font-bold">Your WatchList</h1>
+          <h1 className="text-xl md:text-3xl font-bold">Your WatchList</h1>
           </div>
           <div>
             <h2 className="text-xl font-bold">Total Watch List: {watchlist.length}</h2>
@@ -71,11 +71,9 @@ const GameWatchList = () => {
                   <th className={` ${border} p-3 text-2xl text-left`}>Game Name</th>
                   <th className={` ${border} p-3 text-2xl text-left`}>Rating</th>
                   <th className={` ${border} p-3 text-2xl text-left`}>Genre</th>
-                  {/* <th className={` ${border} p-3 text-2xl text-left`}>Added By</th> */}
                 </tr>
               </thead>
 
-              <h3 className="     "></h3>
 
               <tbody>
                 {watchlist.map((item) => (

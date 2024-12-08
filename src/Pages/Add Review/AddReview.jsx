@@ -34,7 +34,7 @@ const AddReview = () => {
     console.log(newReview);
 
     // send data to the server and database
-    fetch("http://localhost:5000/addReview", {
+    fetch("https://gameinsight-server.vercel.app/addReview", {
       method: "POST",
       headers: {
         "content-type": "application/json",

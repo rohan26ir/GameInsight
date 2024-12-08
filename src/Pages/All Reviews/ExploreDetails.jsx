@@ -20,7 +20,7 @@ const ExploreDetails = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/addToWatchList', {
+      const response = await fetch('https://gameinsight-server.vercel.app/addToWatchList', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

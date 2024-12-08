@@ -8,7 +8,7 @@ const HighestRated = () => {
   useEffect(() => {
     const ftHighestRatedGames = async () => {
       try {
-        const response = await fetch("http://localhost:5000/highestRated");
+        const response = await fetch("https://gameinsight-server.vercel.app/highestRated");
         const data = await response.json();
         setHighestRatedGames(data);
       } catch (error) {

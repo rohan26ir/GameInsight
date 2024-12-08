@@ -17,7 +17,7 @@ const UpdateReview = () => {
   });
 
   useEffect(() => {
-    fetch(`http://localhost:5000/review/${id}`)
+    fetch(`https://gameinsight-server.vercel.app/review/${id}`)
       .then((res) => res.json())
       .then((data) => setReview(data))
       .catch((error) => console.error("Failed to fetch review:", error));
@@ -33,7 +33,7 @@ const UpdateReview = () => {
   const handleUpdateReview = (e) => {
     e.preventDefault();
 
-    fetch(`http://localhost:5000/updateReview/${id}`, {
+    fetch(`https://gameinsight-server.vercel.app/updateReview/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

@@ -35,7 +35,7 @@ const AllReviews = () => {
         if (order) queryParams.append("order", order);
 
         const response = await fetch(
-          `http://localhost:5000/addReview?${queryParams}`
+          `https://gameinsight-server.vercel.app/addReview?${queryParams}`
         );
         const data = await response.json();
         setAddedReviews(data);
@@ -58,7 +58,7 @@ const AllReviews = () => {
 
         <div className="flex justify-between items-center my-4 ">
           <div>
-          <h2 className="text-5xl font-bold">All Reviews</h2>
+          <h2 className="text-2xl md:text-5xl font-bold">All Reviews</h2>
           </div>
           <div>
           <select
@@ -83,7 +83,7 @@ const AllReviews = () => {
         </div>
       </div>
 
-      <div className="gap-2 grid grid-cols-1 md:grid-cols-2 w-11/12 mx-auto m
+      <div className="gap-6 md:gap-3 lg:gap-3 grid grid-cols-1 md:grid-cols-2 w-11/12 mx-auto m
       py-6">
         {addedReviews.map((addedReview) => (
           <div

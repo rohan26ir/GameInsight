@@ -10,7 +10,7 @@ const MyReviews = () => {
 
   // Fetch user-specific reviews
   useEffect(() => {
-    fetch(`http://localhost:5000/myReviews?email=${user.email}`)
+    fetch(`https://gameinsight-server.vercel.app/myReviews?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, [user.email]);
@@ -25,7 +25,7 @@ const MyReviews = () => {
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/deleteReview/${id}`, {
+        fetch(`https://gameinsight-server.vercel.app/deleteReview/${id}`, {
           method: 'DELETE',
         })
           .then((res) => res.json())

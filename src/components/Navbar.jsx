@@ -60,7 +60,7 @@ const Navbar = () => {
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to={"/game-watchList"}>
+                    <NavLink to={"/myWatchlist"}>
                       <CgPlayListAdd /> Game WatchList
                     </NavLink>
                   </li>

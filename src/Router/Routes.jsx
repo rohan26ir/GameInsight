@@ -24,7 +24,7 @@ const Routes = createBrowserRouter([
       {
         path: '/',
         element: <HomeLayout></HomeLayout>,
-        loader: () => fetch('http://localhost:5000/addReview'),
+        loader: () => fetch('https://gameinsight-server.vercel.app/addReview'),
       },
       {
         path: '/all-reviews',
@@ -34,7 +34,7 @@ const Routes = createBrowserRouter([
         path: '/review/:id',
         element: <ExploreDetails />,
         loader: async ({ params }) => {
-          const response = await fetch(`http://localhost:5000/review/${params.id}`);
+          const response = await fetch(`https://gameinsight-server.vercel.app/review/${params.id}`);
           if (!response.ok) {
             throw new Error('Review not found');
           }
