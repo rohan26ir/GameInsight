@@ -11,6 +11,7 @@ import img3 from '../assets/banner03.jpg'
 import img4 from '../assets/ww3.jpg'
 import StoryOnInstra from '../components/StoryOnInstra';
 import HighestRated from '../components/HighestRated';
+import Newsletter from '../components/Newsletter';
 
 
 
@@ -78,9 +79,16 @@ const HomeLayout = () => {
           <HighestRated></HighestRated>
         </div>
 
+
         <div>
           <StoryOnInstra></StoryOnInstra>
         </div>
+
+
+        <div>
+          <Newsletter></Newsletter>
+        </div>
+        
       </main>
     </div>
   );

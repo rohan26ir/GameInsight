@@ -5,8 +5,13 @@ import Swal from 'sweetalert2';
 
 const ExploreDetails = () => {
   const review = useLoaderData();
-  const { user } = useContext(AuthContext);
+  const { user, darkMode } = useContext(AuthContext);
   const [watchlistStatus, setWatchlistStatus] = useState('');
+
+
+  const themeMode = darkMode
+    ? "bg-black text-white"
+    : "bg-[#FFF5CD] text-black";
 
   const handleAddToWatchlist = async () => {
     if (!user?.email || !user?.displayName) {
@@ -14,7 +19,7 @@ const ExploreDetails = () => {
         title: 'Login Required',
         text: 'Please log in to add to the watchlist.',
         icon: 'warning',
-        confirmButtonText: 'OK'
+        confirmButtonText: 'OK',
       });
       return;
     }
@@ -26,7 +31,7 @@ const ExploreDetails = () => {
         body: JSON.stringify({
           reviewId: review._id,
           userEmail: user.email,
-          userName: user.displayName,  // Use displayName here
+          userName: user.displayName,
           name: review.name,
           rating: review.rating,
           genre: review.genre,
@@ -39,7 +44,7 @@ const ExploreDetails = () => {
           title: 'Success!',
           text: 'Review has been added to your watchlist.',
           icon: 'success',
-          confirmButtonText: 'OK'
+          confirmButtonText: 'OK',
         });
       } else {
         const errorData = await response.json();
@@ -51,49 +56,58 @@ const ExploreDetails = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100 flex items-center justify-center p-6">
-      <div className="bg-gray-800 shadow-lg rounded-lg max-w-4xl w-full overflow-hidden">
-        <div className="flex">
-          <div>
+    <div className={`min-h-screen text-gray-100 flex items-center justify-center px-4 md:px-8 py-6  ${themeMode}`}>
+      <div className="bg-gray-800 shadow-lg rounded-lg w-full max-w-5xl overflow-hidden">
+        {/* Header Section */}
+        <div className="md:flex">
+          <div className="w-full md:w-1/3">
             <img
               src={review.photo}
               alt={review.name}
-              className="w-full h-72 object-contain"
+              className="w-full h-72 md:h-full object-contain bg-gray-700"
             />
           </div>
-          <div className="ml-4 p-5">
+          <div className="w-full md:w-2/3 p-6 space-y-4">
             <h2 className="text-3xl font-bold text-orange-500">{review.name}</h2>
-            <div className="flex">
-              <p>Author: {review.userName}</p>
-              <p>Email: {review.userEmail}</p>
+            <div className="text-gray-400 space-y-2">
+              <p>
+                <span className="font-semibold">Author:</span> {review.userName}
+              </p>
+              <p>
+                <span className="font-semibold">Email:</span> {review.userEmail}
+              </p>
             </div>
             <p className="text-gray-300 leading-relaxed">{review.review}</p>
           </div>
         </div>
-        <div className="p-6 space-y-4">
-          <div className="flex flex-wrap gap-4 mt-4">
-            <div className="bg-gray-700 text-center p-3 rounded-lg flex-1">
-              <p className="text-lg font-bold text-orange-400">Rating</p>
-              <p className="text-2xl">{review.rating}</p>
-            </div>
-            <div className="bg-gray-700 text-center p-3 rounded-lg flex-1">
-              <p className="text-lg font-bold text-orange-400">Year</p>
-              <p className="text-2xl">{review.year}</p>
-            </div>
-            <div className="bg-gray-700 text-center p-3 rounded-lg flex-1">
-              <p className="text-lg font-bold text-orange-400">Genre</p>
-              <p className="text-2xl">{review.genre}</p>
-            </div>
+
+        {/* Details Section */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-6">
+          <div className="bg-gray-700 text-center p-4 rounded-lg">
+            <p className="text-lg font-bold text-orange-400">Rating</p>
+            <p className="text-2xl">{review.rating}</p>
           </div>
+          <div className="bg-gray-700 text-center p-4 rounded-lg">
+            <p className="text-lg font-bold text-orange-400">Year</p>
+            <p className="text-2xl">{review.year}</p>
+          </div>
+          <div className="bg-gray-700 text-center p-4 rounded-lg">
+            <p className="text-lg font-bold text-orange-400">Genre</p>
+            <p className="text-2xl">{review.genre}</p>
+          </div>
+        </div>
+
+        {/* Actions Section */}
+        <div className="p-6 space-y-4">
           <button
-            className="mt-6 w-full bg-blue-500 text-white text-lg font-bold py-3 rounded-lg hover:bg-blue-600 transition"
+            className="w-full bg-blue-500 text-white text-lg font-bold py-3 rounded-lg hover:bg-blue-600 transition"
             onClick={handleAddToWatchlist}
           >
-            Add to WatchList
+            Add to Watchlist
           </button>
-          {watchlistStatus && <p className="text-center mt-4">{watchlistStatus}</p>}
+          {watchlistStatus && <p className="text-center text-green-400">{watchlistStatus}</p>}
           <Link to="/myWatchlist">
-            <button className="mt-6 w-full bg-orange-500 text-white text-lg font-bold py-3 rounded-lg hover:bg-orange-600 transition">
+            <button className="w-full bg-orange-500 text-white text-lg font-bold py-3 rounded-lg hover:bg-orange-600 transition mt-2">
               Back to Reviews
             </button>
           </Link>

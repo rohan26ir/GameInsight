@@ -6,9 +6,13 @@ import { Typewriter } from 'react-simple-typewriter';
 import { Fade, Slide } from 'react-awesome-reveal';
 
 const MyReviews = () => {
-  const { user } = useContext(AuthContext);
+  const { user, darkMode } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   const navigate = useNavigate();
+
+  const themeMode = darkMode
+    ? "bg-black text-white"
+    : "bg-[#FFF5CD] text-black";
 
   // Fetch user-specific reviews
   useEffect(() => {
@@ -47,7 +51,7 @@ const MyReviews = () => {
   };
 
   return (
-    <div className="p-5">
+    <div className={`p-5 ${themeMode}`}>
       {/* Animated Header */}
       <Fade triggerOnce>
         <h2 className="text-3xl md:text-4xl font-bold mb-5 text-center">
@@ -65,7 +69,7 @@ const MyReviews = () => {
         <div className="overflow-x-auto">
           <table className="table w-full">
             <thead>
-              <tr>
+              <tr className='text-red-700 text-xl'>
                 <th>#</th>
                 <th>Game Title</th>
                 <th>Review</th>

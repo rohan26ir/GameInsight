@@ -6,7 +6,11 @@ import { Typewriter } from "react-simple-typewriter";
 const AddReview = () => {
 
   
-  const { user } = useContext(AuthContext);
+  const { user, darkMode } = useContext(AuthContext);
+
+  const themeMode = darkMode
+    ? "bg-black text-white"
+    : "bg-[#FFF5CD] text-black";
 
 
   const handleAddCoffee = (e) => {
@@ -58,8 +62,8 @@ const AddReview = () => {
   };
 
   return (
-    <div className="lg:w-3/4 mx-auto">
-      <div className="text-center p-4">
+    <div className={`mx-auto  ${themeMode} p-6`}>
+      <div className="text-center p-4 ">
         <h1 className="text-5xl font-bold">
         <Typewriter
           words={['Add Review']}
@@ -73,7 +77,7 @@ const AddReview = () => {
           below.
         </p>
       </div>
-      <div className="card bg-cyan-800 mb-5 w-full shrink-0 shadow-2xl">
+      <div className="card bg-cyan-800 w-[100%] md:w-[70%] mx-auto shrink-0 shadow-2xl">
         <form onSubmit={handleAddCoffee} className="card-body">
           {/* Game Cover Image */}
           <div className="form-control">
