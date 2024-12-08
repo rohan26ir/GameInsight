@@ -4,7 +4,6 @@ import Login from '../Account/Login';
 import Register from '../Account/Register';
 import AuthLayout from '../Layout/AuthLayout';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
-import ForgetPass from '../Account/ForgetPass';
 import AllReviews from '../Pages/All Reviews/AllReviews';
 import AddReview from '../Pages/Add Review/AddReview';
 import MyReviews from '../Pages/My Reviews/MyReviews';
@@ -58,7 +57,7 @@ const Routes = createBrowserRouter([
         element: <PrivateRoute><UpdateReview></UpdateReview></PrivateRoute>
       },
       {
-        path: '/game-watchList',
+        path: '/myWatchlist',
         element: <PrivateRoute><GameWatchList /></PrivateRoute>
       },
     ]
@@ -76,10 +75,6 @@ const Routes = createBrowserRouter([
         path: 'register',
         element: <Register></Register>
       },
-      {
-        path: 'forget-password',
-        element: <ForgetPass></ForgetPass>
-      }
     ]
   }
 ]);

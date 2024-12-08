@@ -122,12 +122,7 @@ const Login = () => {
           {errorMessage && (
             <p className="text-red-400 text-sm text-center">{errorMessage}</p>
           )}
-          <p
-            className="text-sm text-blue-400 text-center cursor-pointer"
-            onClick={handleForgetPasswordClick}
-          >
-            Forgot Password?
-          </p>
+          
           <button className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
             Login
           </button>

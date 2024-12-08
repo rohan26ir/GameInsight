@@ -92,8 +92,6 @@ const Navbar = () => {
                 <FaStarHalfAlt /> All Reviews
               </NavLink>
             </li>
-            {user && (
-              <>
                 <li>
                   <NavLink to={"/add-review"}>
                     <MdOutlineGamepad /> Add Review
@@ -105,12 +103,10 @@ const Navbar = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to={"/game-watchList"}>
+                  <NavLink to={"/myWatchlist"}>
                     <CgPlayListAdd /> Game WatchList
                   </NavLink>
                 </li>
-              </>
-            )}
           </ul>
         </div>
 
@@ -124,22 +120,22 @@ const Navbar = () => {
         </div>
 
 
-          <div className="tooltip tooltip-bottom tooltip-info" data-tip={user ? user.displayName : "User Name"}>
+          {user &&   <div className="tooltip tooltip-bottom tooltip-info" data-tip={user ? user.displayName : "User Name"}>
             
-          <div>
-            {user ? (
-              <img
-                className="h-10 w-10 rounded-full"
-                src={user.photoURL || "https://via.placeholder.com/40"}
-                alt={user.displayName || "User"}
-              />
-            ) : (
-              <FaUserCircle className="text-3xl" />
-            )}
-
-          </div>
-
-          </div>
+            <div>
+              {user ? (
+                <img
+                  className="h-10 w-10 rounded-full"
+                  src={user.photoURL || "https://via.placeholder.com/40"}
+                  alt={user.displayName || "User"}
+                />
+              ) : (
+                <FaUserCircle className="text-3xl" />
+              )}
+  
+            </div>
+  
+            </div>}
 
           {/* {user && user.displayName && (
             <div className="text-white">{user.displayName}</div>
@@ -159,6 +155,12 @@ const Navbar = () => {
               </button>
             </Link>
           )}
+
+          {!user && (<Link to="/auth/register">
+              <button className="px-5 py-1 bg-red-600 hover:bg-rose-800 text-white font-semibold rounded-md">
+                Register
+              </button>
+            </Link>)}
         </div>
       </div>
     </div>
