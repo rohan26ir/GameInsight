@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { Typewriter } from "react-simple-typewriter";
 
 const AddReview = () => {
 
@@ -59,7 +60,14 @@ const AddReview = () => {
   return (
     <div className="lg:w-3/4 mx-auto">
       <div className="text-center p-4">
-        <h1 className="text-5xl font-bold">Add Review</h1>
+        <h1 className="text-5xl font-bold">
+        <Typewriter
+          words={['Add Review']}
+          loop={false}
+          cursor
+          cursorStyle="_"
+        />
+        </h1>
         <p className="py-6">
           Share your thoughts about your favorite games! Submit your review
           below.

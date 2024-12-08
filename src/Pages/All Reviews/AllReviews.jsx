@@ -5,6 +5,7 @@ import { SiRescuetime } from "react-icons/si";
 import { TbDetails } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { Typewriter } from "react-simple-typewriter";
 
 const AllReviews = () => {
 
@@ -58,7 +59,14 @@ const AllReviews = () => {
 
         <div className="flex justify-between items-center my-4 ">
           <div>
-          <h2 className="text-2xl md:text-5xl font-bold">All Reviews</h2>
+          <h2 className="text-2xl md:text-5xl font-bold">
+          <Typewriter
+          words={['All Reviews']}
+          loop={false}
+          cursor
+          cursorStyle="_"
+        />
+          </h2>
           </div>
           <div>
           <select
