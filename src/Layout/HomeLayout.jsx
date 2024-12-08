@@ -12,6 +12,7 @@ import img4 from '../assets/ww3.jpg'
 import StoryOnInstra from '../components/StoryOnInstra';
 import HighestRated from '../components/HighestRated';
 import Newsletter from '../components/Newsletter';
+import CountCard from '../components/CountCard';
 
 
 
@@ -84,11 +85,14 @@ const HomeLayout = () => {
           <StoryOnInstra></StoryOnInstra>
         </div>
 
+        <div>
+          <CountCard></CountCard>
+        </div>
 
         <div>
           <Newsletter></Newsletter>
         </div>
-        
+
       </main>
     </div>
   );
