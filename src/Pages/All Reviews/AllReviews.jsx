@@ -59,12 +59,12 @@ const AllReviews = () => {
 
         <div className="flex justify-between items-center my-4 ">
           <div>
-          <h2 className="text-2xl md:text-5xl font-bold">
+          <h2 className="text-xl md:text-4xl font-bold">
           <Typewriter
           words={['All Reviews']}
           loop={false}
           cursor
-          cursorStyle="_"
+          cursorStyle="|"
         />
           </h2>
           </div>

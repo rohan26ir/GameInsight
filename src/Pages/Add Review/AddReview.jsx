@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Typewriter } from "react-simple-typewriter";
+import { Helmet } from "react-helmet";
 
 const AddReview = () => {
 
@@ -63,6 +64,11 @@ const AddReview = () => {
 
   return (
     <div className={`mx-auto  ${themeMode} p-6`}>
+
+     <Helmet>
+        <title>Add Review | GameInsight</title>
+      </Helmet>
+
       <div className="text-center p-4 ">
         <h1 className="text-5xl font-bold">
         <Typewriter

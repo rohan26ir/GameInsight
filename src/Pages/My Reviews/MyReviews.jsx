@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { Typewriter } from 'react-simple-typewriter';
 import { Fade, Slide } from 'react-awesome-reveal';
+import { Helmet } from 'react-helmet';
 
 const MyReviews = () => {
   const { user, darkMode } = useContext(AuthContext);
@@ -52,6 +53,10 @@ const MyReviews = () => {
 
   return (
     <div className={`p-5 ${themeMode}`}>
+
+      <Helmet>
+        <title>My Reviews | GameInsight</title>
+      </Helmet>
       {/* Animated Header */}
       <Fade triggerOnce>
         <h2 className="text-3xl md:text-4xl font-bold mb-5 text-center">

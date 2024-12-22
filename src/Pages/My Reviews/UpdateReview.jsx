@@ -53,6 +53,11 @@ const UpdateReview = () => {
 
   return (
     <div className={`p-5 ${themeMode}`}>
+
+      <Helmet>
+        <title>UpdateReview | GameInsight</title>
+      </Helmet>
+
       <h2 className="text-3xl font-bold text-center mb-5">Update Review</h2>
       <form onSubmit={handleUpdate} className="max-w-lg mx-auto">
         <div className="mb-4">

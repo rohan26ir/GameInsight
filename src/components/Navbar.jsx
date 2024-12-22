@@ -38,34 +38,30 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow z-50"
             >
               <li>
-                <NavLink to={"/"}>
-                  <FaHome /> Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to={"/all-reviews"}>
-                  <FaStarHalfAlt /> All Reviews
-                </NavLink>
-              </li>
-              {user && (
-                <>
-                  <li>
-                    <NavLink to={"/add-review"}>
-                      <MdOutlineGamepad /> Add Review
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to={"/my-reviews"}>
-                      <TfiUser /> My Reviews
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to={"/myWatchlist"}>
-                      <CgPlayListAdd /> Game WatchList
-                    </NavLink>
-                  </li>
-                </>
-              )}
+              <NavLink to={"/"}>
+                <FaHome /> Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/all-reviews"}>
+                <FaStarHalfAlt /> All Reviews
+              </NavLink>
+            </li>
+                <li>
+                  <NavLink to={"/add-review"}>
+                    <MdOutlineGamepad /> Add Review
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to={"/my-reviews"}>
+                    <TfiUser /> My Reviews
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to={"/myWatchlist"}>
+                    <CgPlayListAdd /> Game WatchList
+                  </NavLink>
+                </li>
             </ul>
           </div>
           
@@ -153,14 +149,14 @@ const Navbar = () => {
             </button>
           ) : (
             <Link to="/auth/login">
-              <button className="px-2 py-1 bg-red-600 hover:bg-rose-800 text-white font-semibold rounded-md w-[100%] ">
+              <button className="px-2 py-1 bg-red-600 hover:bg-rose-800 text-white font-semibold rounded-md w-[110%] ">
                 Log In
               </button>
             </Link>
           )}
 
           {!user && (<Link to="/auth/register">
-              <button className="px-5 py-1 bg-red-600 hover:bg-rose-800 text-white font-semibold rounded-md">
+              <button className="px-3 py-1 bg-red-600 hover:bg-rose-800 text-white font-semibold rounded-md">
                 Register
               </button>
             </Link>)}
