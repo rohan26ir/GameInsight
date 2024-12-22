@@ -106,9 +106,9 @@ const ExploreDetails = () => {
             Add to Watchlist
           </button>
           {watchlistStatus && <p className="text-center text-green-400">{watchlistStatus}</p>}
-          <Link to="/myWatchlist">
+          <Link to="/">
             <button className="w-full bg-orange-500 text-white text-lg font-bold py-3 rounded-lg hover:bg-orange-600 transition mt-2">
-              Back to Reviews
+              Back to Home
             </button>
           </Link>
         </div>
