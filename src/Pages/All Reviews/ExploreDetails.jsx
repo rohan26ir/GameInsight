@@ -8,13 +8,14 @@ const ExploreDetails = () => {
   const { user, darkMode } = useContext(AuthContext);
   const [watchlistStatus, setWatchlistStatus] = useState('');
 
-
   const themeMode = darkMode
-    ? "bg-black text-white"
-    : "bg-[#FFF5CD] text-black";
+    ? 'bg-black text-white'
+    : 'bg-[#FFF5CD] text-black';
+
+    console.log(user);
 
   const handleAddToWatchlist = async () => {
-    if (!user?.email || !user?.displayName) {
+    if (!user.email) {
       Swal.fire({
         title: 'Login Required',
         text: 'Please log in to add to the watchlist.',
@@ -25,18 +26,21 @@ const ExploreDetails = () => {
     }
 
     try {
-      const response = await fetch('https://gameinsight-server.vercel.app/addToWatchList', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          reviewId: review._id,
-          userEmail: user.email,
-          userName: user.displayName,
-          name: review.name,
-          rating: review.rating,
-          genre: review.genre,
-        }),
-      });
+      const response = await fetch(
+        'https://gameinsight-server.vercel.app/addToWatchList',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            reviewId: review._id,
+            userEmail: user.email,
+            userName: user.displayName,
+            name: review.name,
+            rating: review.rating,
+            genre: review.genre,
+          }),
+        }
+      );
 
       if (response.ok) {
         setWatchlistStatus('Added to watchlist successfully!');
@@ -51,14 +55,14 @@ const ExploreDetails = () => {
         setWatchlistStatus(errorData.message || 'Failed to add to watchlist.');
       }
     } catch (error) {
+      console.error('Error adding to watchlist:', error);
       setWatchlistStatus('An error occurred. Please try again later.');
     }
   };
 
   return (
-    <div className={`min-h-screen text-gray-100 flex items-center justify-center px-4 md:px-8 py-6  ${themeMode}`}>
+    <div className={`min-h-screen flex items-center justify-center px-4 py-6 ${themeMode}`}>
       <div className="bg-gray-800 shadow-lg rounded-lg w-full max-w-5xl overflow-hidden">
-        {/* Header Section */}
         <div className="md:flex">
           <div className="w-full md:w-1/3">
             <img
@@ -80,8 +84,6 @@ const ExploreDetails = () => {
             <p className="text-gray-300 leading-relaxed">{review.review}</p>
           </div>
         </div>
-
-        {/* Details Section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-6">
           <div className="bg-gray-700 text-center p-4 rounded-lg">
             <p className="text-lg font-bold text-orange-400">Rating</p>
@@ -96,8 +98,6 @@ const ExploreDetails = () => {
             <p className="text-2xl">{review.genre}</p>
           </div>
         </div>
-
-        {/* Actions Section */}
         <div className="p-6 space-y-4">
           <button
             className="w-full bg-blue-500 text-white text-lg font-bold py-3 rounded-lg hover:bg-blue-600 transition"

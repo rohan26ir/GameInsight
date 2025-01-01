@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const UpdateReview = () => {
   const { id } = useParams(); // Get review ID from URL
@@ -57,6 +58,8 @@ const UpdateReview = () => {
       <Helmet>
         <title>UpdateReview | GameInsight</title>
       </Helmet>
+
+      
 
       <h2 className="text-3xl font-bold text-center mb-5">Update Review</h2>
       <form onSubmit={handleUpdate} className="max-w-lg mx-auto">
