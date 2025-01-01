@@ -47,3 +47,6 @@ This repository contains the **frontend** code for GameInsight, a game review pl
 
 - **Hosting**:
   - **Firebase**
+
+# Server side:
+https://github.com/rohan26ir/GameInsight-server
