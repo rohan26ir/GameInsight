@@ -13,6 +13,7 @@ import StoryOnInstra from '../components/StoryOnInstra';
 import HighestRated from '../components/HighestRated';
 import Newsletter from '../components/Newsletter';
 import CountCard from '../components/CountCard';
+import Promotion1 from '../components/Promotions/Promotion1';
 
 
 
@@ -87,6 +88,10 @@ const HomeLayout = () => {
 
         <div>
           <CountCard></CountCard>
+        </div>
+
+        <div>
+          <Promotion1></Promotion1>
         </div>
 
         <div>
