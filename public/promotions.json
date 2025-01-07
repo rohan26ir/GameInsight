@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "title": "Exclusive Game Bundle - Save 30%",
+    "description": "Get the ultimate gaming bundle with top titles at an unbeatable price!",
+    "image": "https://i.ibb.co.com/LZQ9QZ0/30.webp",
+    "details": {
+      "description": "This bundle includes top titles from various genres such as Action, Adventure, and RPG. Get 5 amazing games for the price of 3. Offer valid till 31st January 2025.",
+      "terms": "This offer cannot be combined with other promotions. Limited to one purchase per user. Terms and conditions apply.",
+      "image": "https://via.placeholder.com/300"
+    }
+  },
+  {
+    "id": 2,
+    "title": "Promo Code: GAMER2025",
+    "description": "Use the code at checkout to get 15% off selected games.",
+    "image": "https://i.ibb.co.com/YQLQWcr/ofer.webp",
+    "details": {
+      "description": "Apply the promo code 'GAMER2025' at checkout to enjoy a 15% discount on selected games. Valid for new and existing users.",
+      "terms": "Promo code valid till 15th February 2025. Only applicable on orders over $50. Non-refundable and non-exchangeable.",
+      "image": "https://via.placeholder.com/300"
+    }
+  },
+  {
+    "id": 3,
+    "title": "Seasonal Discounts - Up to 50% Off",
+    "description": "Don't miss these limited-time discounts on your favorite games!",
+    "image": "https://i.ibb.co.com/H2J6gbH/50-Off.webp",
+    "details": {
+      "description": "Celebrate the season with massive discounts on over 100+ popular titles. From strategy to FPS games, there's something for everyone!",
+      "terms": "Offer valid while supplies last. Discounts may vary by region. No price adjustments for prior purchases.",
+      "image": "https://via.placeholder.com/300"
+    }
+  }
+]

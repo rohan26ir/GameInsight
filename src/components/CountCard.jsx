@@ -6,7 +6,7 @@ const CountCard = () => {
   return (
     <div className="my-8 w-11/12 mx-auto">
       {/* Title with Typewriter Effect */}
-      <h2 className="text-3xl font-bold p-3 text-center text-[#910413]">
+      <h2 className="text-3xl font-bold p-3 text-center text-[#F14334]">
         <Typewriter words={['Other Features']} loop={false} cursor cursorStyle="_" />
       </h2>
 

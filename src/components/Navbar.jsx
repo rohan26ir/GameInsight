@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { CgPlayListAdd, CgProfile } from "react-icons/cg";
 import { TfiUser } from "react-icons/tfi";
-import { MdOutlineGamepad } from "react-icons/md";
+import { MdOutlineGamepad, MdOutlinePages } from "react-icons/md";
 import { PiGameControllerBold } from "react-icons/pi";
 import DarkMode from "./DarkMode";
 
@@ -38,48 +38,48 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow z-50"
             >
               <li>
-              <NavLink to={"/"}>
-                <FaHome /> Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to={"/all-reviews"}>
-                <FaStarHalfAlt /> All Reviews
-              </NavLink>
-            </li>
-                <li>
-                  <NavLink to={"/add-review"}>
-                    <MdOutlineGamepad /> Add Review
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to={"/my-reviews"}>
-                    <TfiUser /> My Reviews
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to={"/myWatchlist"}>
-                    <CgPlayListAdd /> Game WatchList
-                  </NavLink>
-                </li>
+                <NavLink to={"/"}>
+                  <FaHome /> Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to={"/all-reviews"}>
+                  <FaStarHalfAlt /> All Reviews
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to={"/add-review"}>
+                  <MdOutlineGamepad /> Add Review
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to={"/my-reviews"}>
+                  <TfiUser /> My Reviews
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to={"/myWatchlist"}>
+                  <CgPlayListAdd /> Game WatchList
+                </NavLink>
+              </li>
             </ul>
           </div>
-          
+
           <div className="hidden md:block">
             <Link
-            to="/"
-            className="p-2 flex text-xl font-bold justify-center items-center"
-          >
-            <span className="mr-1 text-rose-600">
-              <PiGameControllerBold />
-            </span>{" "}
-            <span className="text-orange-600">GameInsight</span>
-          </Link>
+              to="/"
+              className="p-2 flex text-xl font-bold justify-center items-center"
+            >
+              <span className="mr-1 text-rose-600">
+                <PiGameControllerBold />
+              </span>{" "}
+              <span className="text-orange-600">GameInsight</span>
+            </Link>
           </div>
         </div>
 
         {/* Navbar Center */}
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-center hidden lg:flex ">
           <ul className="menu menu-horizontal px-1">
             <li>
               <NavLink to={"/"}>
@@ -91,50 +91,71 @@ const Navbar = () => {
                 <FaStarHalfAlt /> All Reviews
               </NavLink>
             </li>
-                <li>
-                  <NavLink to={"/add-review"}>
-                    <MdOutlineGamepad /> Add Review
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to={"/my-reviews"}>
-                    <TfiUser /> My Reviews
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to={"/myWatchlist"}>
-                    <CgPlayListAdd /> Game WatchList
-                  </NavLink>
-                </li>
+            <li>
+              <NavLink to={"/add-review"}>
+                <MdOutlineGamepad /> Add Review
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/my-reviews"}>
+                <TfiUser /> My Reviews
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/myWatchlist"}>
+                <CgPlayListAdd /> Game WatchList
+              </NavLink>
+            </li>
+
+            <li>
+              <div className="dropdown dropdown-bottom dropdown-end">
+                <div tabIndex={0} role="button" className="flex justify-between items-center gap-[2px]">
+                <MdOutlinePages /> Pages
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content menu bg-gray-300 w-[200%] mt-1 rounded-box z-[1] shadow"
+                >
+                  <li>
+                    <Link to={'/about-us'}>About Us</Link>
+                  </li>
+                  <li>
+                    <Link to={'/contact-us'}>Contact Us</Link>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            
           </ul>
         </div>
 
-        
-
         {/* Navbar End */}
         <div className="navbar-end items-center gap-2 w-[100%]">
+          <div>
+            <DarkMode></DarkMode>
+          </div>
 
-        <div>
-          <DarkMode></DarkMode>
-        </div>
-
-
-          {user &&   <div className="tooltip tooltip-bottom tooltip-info" data-tip={user ? user.displayName : "User Name"}>
-            
-            <div>
-              {user ? (
-                <img
-                  className="h-10 w-10 rounded-full"
-                  src={user.photoURL || "https://via.placeholder.com/40"}
-                  alt={user.displayName || "User"}
-                />
-              ) : (
-                <FaUserCircle className="text-3xl" />
-              )}
-  
+          {user && (
+            <div
+              className="tooltip tooltip-bottom tooltip-info"
+              data-tip={user ? user.displayName : "User Name"}
+            >
+              <div>
+                {user ? (
+                  <img
+                    className="h-10 w-10 rounded-full bg-[#EE4333]"
+                    src={
+                      user.photoURL ||
+                      "https://img.icons8.com/ios-filled/50/user-male-circle.png"
+                    }
+                    alt={user.displayName || "User"}
+                  />
+                ) : (
+                  <FaUserCircle className="text-3xl" />
+                )}
+              </div>
             </div>
-  
-            </div>}
+          )}
 
           {/* {user && user.displayName && (
             <div className="text-white">{user.displayName}</div>
@@ -155,11 +176,13 @@ const Navbar = () => {
             </Link>
           )}
 
-          {!user && (<Link to="/auth/register">
+          {!user && (
+            <Link to="/auth/register">
               <button className="px-3 py-1 bg-red-600 hover:bg-rose-800 text-white font-semibold rounded-md">
                 Register
               </button>
-            </Link>)}
+            </Link>
+          )}
         </div>
       </div>
     </div>

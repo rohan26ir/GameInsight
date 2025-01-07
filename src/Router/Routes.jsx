@@ -13,6 +13,9 @@ import HomeLayout from "../Layout/HomeLayout";
 import MainLayout from "../Layout/MainLayout";
 import UpdateReview from "../Pages/My Reviews/UpdateReview";
 import ExploreDetails from "../Pages/All Reviews/ExploreDetails";
+import LearnMorePage from "../components/Promotions/LearnMorePage";
+import AboutPage from "../Pages/ExtraPage/AboutPage";
+import ContactPage from "../Pages/ExtraPage/ContactPage";
 
 const Routes = createBrowserRouter([
   {
@@ -25,6 +28,10 @@ const Routes = createBrowserRouter([
         path: "/",
         element: <HomeLayout></HomeLayout>,
         loader: () => fetch("https://gameinsight-server.vercel.app/addReview"),
+      },
+      {
+        path: "/promotions/:id",
+        element: <LearnMorePage></LearnMorePage>
       },
       {
         path: "/all-reviews",
@@ -42,6 +49,14 @@ const Routes = createBrowserRouter([
           }
           return response.json();
         },
+      },
+      {
+        path: "/about-us",
+        element: <AboutPage></AboutPage>
+      },
+      {
+        path: "/contact-us",
+        element: <ContactPage></ContactPage>
       },
 
       // Private
