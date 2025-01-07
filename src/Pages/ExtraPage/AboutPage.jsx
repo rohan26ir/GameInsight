@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Lottie from "lottie-react";
 import profileMan from '../../../public/profile.json';
 
 const AboutPage = () => {
+
+    useEffect(() => {
+      // Smoothly scroll to the top when the component is mounted
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }, []);
+
   return (
     <div className="bg-gray-900 text-white min-h-screen py-10 px-5">
       <div className="max-w-6xl mx-auto">

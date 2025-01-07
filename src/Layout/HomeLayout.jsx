@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import Slider from '../components/Slider';
 import { AuthContext } from '../AuthProvider/AuthProvider';
@@ -59,6 +59,15 @@ const HomeLayout = () => {
   const themeMode = darkMode
     ? "bg-black text-white"
     : "bg-[#FFF5CD] text-black";
+
+
+      useEffect(() => {
+        // Smoothly scroll to the top when the component is mounted
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }, []);
 
 
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const ContactPage = () => {
   const handleSend = (e) => {
@@ -6,8 +6,16 @@ const ContactPage = () => {
     console.log("Form submitted");
   };
 
+  useEffect(() => {
+    // Smoothly scroll to the top when the component is mounted
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
+
   return (
-    <div className="bg-gray-900 text-white min-h-screen py-10 px-5">
+    <div className="bg-gray-900 text-white min-h-screen py-10 px-5 scroll-smooth">
       {/* Header Section */}
       <div className="text-center mb-10">
         <h1 className="text-4xl font-bold mb-4 animate-fadeInDown">Contact Us</h1>
